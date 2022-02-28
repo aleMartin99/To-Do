@@ -32,10 +32,10 @@ class TaskLocalDataSource implements ITaskLocalDataSource {
 
   @override
   Future<void> changeStatus(TaskAdapt taskAdapt, int id) async {
-    await cacheManager.changeStatus<CacheManager>(
-      CacheBoxes.tasksBox,
+    await cacheManager.update<TaskAdapt>(
       taskAdapt,
       id,
+      CacheBoxes.tasksBox,
     );
   }
 }

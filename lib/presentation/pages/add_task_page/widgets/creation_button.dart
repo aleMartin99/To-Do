@@ -17,11 +17,10 @@ class _CreationButtonState extends State<CreationButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
       child: RawMaterialButton(
         fillColor: Get.theme.primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.elliptical(50, 50)),
         ),
         onPressed: widget.addTaskController.submitForm,
         child: const Text(

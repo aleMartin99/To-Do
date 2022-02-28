@@ -94,7 +94,7 @@ class _TaskCardState extends State<TaskCard> {
     return Card(
       color: cardColor(widget.task.status),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        padding: const EdgeInsets.all(18),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -112,42 +112,70 @@ class _TaskCardState extends State<TaskCard> {
                   children: [
                     const Text(
                       'Responsable: ',
-                      style: TextStyle(color: Colors.black87),
+                      style: TextStyle(color: Colors.black87, fontSize: 15),
                     ),
-                    Text(widget.task.responsable),
+                    Text(
+                      widget.task.responsable,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 17,
+                      ),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
                     const Text(
-                      'Estado: ',
-                      style: TextStyle(color: Colors.black54),
+                      'Autor: ',
+                      style: TextStyle(color: Colors.black54, fontSize: 15),
                     ),
                     Text(
-                      taskStatusToString(widget.task.status),
+                      widget.task.author,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
               ],
             ),
-            ButtonBar(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  onPressed: _showMyDialog,
-                  tooltip: 'Cambiar estado de la tarea',
-                  icon: const Icon(
-                    Icons.more_rounded,
-                    color: Colors.black54,
-                  ),
+                const SizedBox(height: 8),
+                ButtonBar(
+                  children: [
+                    IconButton(
+                      onPressed: _showMyDialog,
+                      tooltip: 'Cambiar estado de la tarea',
+                      icon: const Icon(
+                        Icons.more_rounded,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        widget.homeController.deleteTask(widget.task.id!);
+                      },
+                      tooltip: 'Eliminar Tarea',
+                      icon: const Icon(
+                        Icons.delete_rounded,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
                 ),
-                IconButton(
-                  onPressed: () {
-                    widget.homeController.deleteTask(widget.task.id!);
-                  },
-                  tooltip: 'Eliminar Tarea',
-                  icon: const Icon(
-                    Icons.delete_rounded,
-                    color: Colors.black54,
+                Text(
+                  taskStatusToString(
+                    widget.task.status,
+                  ),
+                  textAlign: TextAlign.end,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
                   ),
                 ),
               ],

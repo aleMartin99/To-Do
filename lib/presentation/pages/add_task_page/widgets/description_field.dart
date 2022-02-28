@@ -18,6 +18,7 @@ class _DescriptionFieldState extends State<DescriptionField> {
       textCapitalization: TextCapitalization.sentences,
       decoration: const InputDecoration(
         labelText: 'Descripción',
+        border: OutlineInputBorder(),
       ),
       maxLines: 3,
       textInputAction: TextInputAction.next,

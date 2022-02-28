@@ -36,7 +36,10 @@ class _TaskTypePickerState extends State<TaskTypePicker> {
         ),
       ),
       trailing: DropdownButton(
-        hint: const Text('Tipo'),
+        hint: const Text(
+          'Tipo',
+          style: TextStyle(color: Colors.black),
+        ),
         iconEnabledColor: Get.theme.primaryColor,
         value: widget.addTaskController.type,
         onChanged: (TaskType? newValue) {

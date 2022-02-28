@@ -14,20 +14,6 @@ import 'package:gsi_test/presentation/pages/add_task_page/widgets/title_field.da
 class AddTaskPage extends GetView<AddTaskController> {
   const AddTaskPage({Key? key}) : super(key: key);
 
-  //TODO(ale): añadir author
-  // Widget _buildProjectTextField(AddTaskController _) {
-  //   return TextFormField(
-  //     textCapitalization: TextCapitalization.sentences,
-  //     decoration: InputDecoration(
-  //       labelText: 'I18nKeys.project.tr',
-  //     ),
-  //     textInputAction: TextInputAction.done,
-  //     autovalidateMode: AutovalidateMode.onUserInteraction,
-  //     // validator: AppValidator.validateRequired,
-  //     onSaved: (String? value) => _.project = value!,
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AddTaskController>(
@@ -49,6 +35,7 @@ class AddTaskPage extends GetView<AddTaskController> {
                     primary: false,
                     children: [
                       TitleField(addTaskController: addTaskController),
+                      const SizedBox(height: 25),
                       DescriptionField(addTaskController: addTaskController),
                       const SizedBox(height: 25),
                       TaskTypePicker(addTaskController: addTaskController),

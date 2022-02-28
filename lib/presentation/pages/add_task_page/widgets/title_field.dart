@@ -18,6 +18,7 @@ class _TitleFieldState extends State<TitleField> {
     return TextFormField(
       textCapitalization: TextCapitalization.sentences,
       decoration: const InputDecoration(
+        border: OutlineInputBorder(),
         labelText: 'Título',
       ),
       textInputAction: TextInputAction.next,
