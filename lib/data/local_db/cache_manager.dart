@@ -52,12 +52,6 @@ class CacheManager extends GetxService {
     await box.delete(key);
   }
 
-  // Future<void> changeStatus<T>(String boxName, TaskAdapt task, int id)
-  // async {
-  //   final box = _getBox(boxName);
-  //   await box.put(id, task);
-  // }
-
   Future<void> update<T>(
     T item,
     int id,
