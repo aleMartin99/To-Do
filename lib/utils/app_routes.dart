@@ -2,9 +2,9 @@
 
 class AppRoutes {
   static String get getInitialRoute {
-    return home_page;
+    return homePage;
   }
 
-  static const String home_page = '/home';
-  static const String addTask_page = '/add_task';
+  static const String homePage = '/home';
+  static const String addTaskPage = '/add_task';
 }

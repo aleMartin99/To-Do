@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:gsi_test/data/adapters/task_adapter.dart';
 import 'package:gsi_test/data/local_db/cache_manager.dart';
 import 'package:gsi_test/data/local_db/const.dart';
@@ -10,9 +12,8 @@ abstract class ITaskLocalDataSource {
 }
 
 class TaskLocalDataSource implements ITaskLocalDataSource {
-  final CacheManager cacheManager;
-
   TaskLocalDataSource({required this.cacheManager});
+  final CacheManager cacheManager;
 
   @override
   Future<List<TaskAdapt>> getTasks() {
@@ -26,11 +27,15 @@ class TaskLocalDataSource implements ITaskLocalDataSource {
 
   @override
   Future<void> deleteTask(int id) async {
-    await cacheManager.delete(id, CacheBoxes.tasksBox);
+    await cacheManager.delete<dynamic>(id, CacheBoxes.tasksBox);
   }
 
   @override
   Future<void> changeStatus(TaskAdapt taskAdapt, int id) async {
-    await cacheManager.changeStatus(CacheBoxes.tasksBox, taskAdapt, id);
+    await cacheManager.changeStatus<CacheManager>(
+      CacheBoxes.tasksBox,
+      taskAdapt,
+      id,
+    );
   }
 }

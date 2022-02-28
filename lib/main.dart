@@ -13,11 +13,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   ///locks the Orientation to portraitUp
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  await registerServiceContainer();
-
-  runApp(const MyApp());
+  await registerServiceContainer().then((_) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

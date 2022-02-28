@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:get/get.dart';
 import 'package:gsi_test/data/datasources/task_local_data_source.dart';
 import 'package:gsi_test/data/local_db/cache_manager.dart';
@@ -14,6 +16,7 @@ Future<void> registerServiceContainer() async {
     permanent: true,
   );
 
+  // ignore: cascade_invocations
   Get.put<ITaskRepository>(
     TaskRepository(local: sl<ITaskLocalDataSource>()),
     permanent: true,

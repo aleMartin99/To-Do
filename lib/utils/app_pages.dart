@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:get/get.dart';
 import 'package:gsi_test/presentation/controllers/add_task/add_task_binding.dart';
 import 'package:gsi_test/presentation/controllers/home/home_binding.dart';
@@ -7,14 +9,14 @@ import 'package:gsi_test/utils/app_routes.dart';
 
 class AppPages {
   static List<GetPage> routes = [
-    GetPage<GetPage>(
-      name: AppRoutes.home_page,
+    GetPage<dynamic>(
+      name: AppRoutes.homePage,
       page: () => const HomePage(),
       binding: HomeControllerBinding(),
     ),
-    GetPage(
-      name: AppRoutes.addTask_page,
-      page: () => AddTaskPage(),
+    GetPage<dynamic>(
+      name: AppRoutes.addTaskPage,
+      page: AddTaskPage.new,
       binding: AddTaskControllerBinding(),
     ),
   ];

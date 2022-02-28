@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:get/get.dart';
 import 'package:gsi_test/data/adapters/task_adapter.dart';
 import 'package:gsi_test/data/local_db/const.dart';
@@ -14,7 +16,7 @@ class CacheManager extends GetxService {
       ..init(directory.path)
       ..registerAdapter(TaskAdaptAdapter());
 
-    _tasksBox = await Hive.openBox(CacheBoxes.tasksBox);
+    _tasksBox = await Hive.openBox<dynamic>(CacheBoxes.tasksBox);
 
     return this;
   }
@@ -33,7 +35,7 @@ class CacheManager extends GetxService {
     final boxList = <T>[];
     final length = box.length;
 
-    for (int i = 0; i < length; i++) {
+    for (var i = 0; i < length; i++) {
       boxList.add(box.getAt(i) as T);
     }
     return boxList;
@@ -59,7 +61,7 @@ class CacheManager extends GetxService {
   Future<void> onClose() async {
     for (final item in CacheBoxes.allBoxes) {
       if (Hive.isBoxOpen(item)) {
-        await Hive.box(item).compact();
+        await Hive.box<dynamic>(item).compact();
       }
     }
     await Hive.close();

@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:gsi_test/data/model/task_model.dart';
 import 'package:gsi_test/domain/entities/task.dart';
 

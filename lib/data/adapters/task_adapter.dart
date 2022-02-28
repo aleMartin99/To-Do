@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:gsi_test/data/model/task_model.dart';
 import 'package:gsi_test/domain/entities/task.dart';
 import 'package:hive/hive.dart';
@@ -6,6 +8,29 @@ part 'task_adapter.g.dart';
 
 @HiveType(typeId: 1)
 class TaskAdapt extends HiveObject {
+  TaskAdapt({
+    required this.title,
+    required this.description,
+    required this.type,
+    required this.status,
+    required this.fulfillmentDate,
+    required this.responsable,
+    required this.author,
+    required this.project,
+  });
+  factory TaskAdapt.fromDomain(Task response) {
+    return TaskAdapt(
+      title: response.title,
+      description: response.description,
+      type: response.type.index,
+      status: response.status.index,
+      fulfillmentDate: response.fulfillmentDate,
+      responsable: response.responsable,
+      author: response.author,
+      project: response.project.index,
+    );
+  }
+
   @HiveField(0)
   final String title;
 
@@ -29,30 +54,6 @@ class TaskAdapt extends HiveObject {
 
   @HiveField(7)
   final int project;
-
-  TaskAdapt({
-    required this.title,
-    required this.description,
-    required this.type,
-    required this.status,
-    required this.fulfillmentDate,
-    required this.responsable,
-    required this.author,
-    required this.project,
-  });
-
-  factory TaskAdapt.fromDomain(Task response) {
-    return TaskAdapt(
-      title: response.title,
-      description: response.description,
-      type: response.type.index,
-      status: response.status.index,
-      fulfillmentDate: response.fulfillmentDate,
-      responsable: response.responsable,
-      author: response.author,
-      project: response.project.index,
-    );
-  }
 
   Task toDomain() {
     return Task(
