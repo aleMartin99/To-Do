@@ -98,47 +98,49 @@ class _TaskCardState extends State<TaskCard> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.task.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 20,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.task.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Responsable: ',
-                      style: TextStyle(color: Colors.black87, fontSize: 15),
-                    ),
-                    Text(
-                      widget.task.responsable,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 17,
+                  Row(
+                    children: [
+                      const Text(
+                        'Responsable: ',
+                        style: TextStyle(color: Colors.black87, fontSize: 15),
                       ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Text(
-                      'Autor: ',
-                      style: TextStyle(color: Colors.black54, fontSize: 15),
-                    ),
-                    Text(
-                      widget.task.author,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 16,
+                      Text(
+                        widget.task.responsable,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 17,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Text(
+                        'Autor: ',
+                        style: TextStyle(color: Colors.black54, fontSize: 15),
+                      ),
+                      Text(
+                        widget.task.author,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
